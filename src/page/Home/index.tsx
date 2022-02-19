@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import {Container, ViewCol, Text, ViewRowCheck, InpText, CheckboxView, Line, Title, Button, ViewRow, Result} from './styled';
 import {Modal, Checkbox} from "react-native-paper"
@@ -7,6 +8,7 @@ export default function intro() {
     const [passagem1, setPassagem1] = useState(false)
     const [passagem2, setPassagem2] = useState(false)
     const [passagem3, setPassagem3] = useState(false)
+    const [passagem4, setPassagem4] = useState(false)
     const [baseCalculo1, setBaseCalculo1] = useState('')
     const [baseCalculo2, setBaseCalculo2] = useState('')
     const [baseCalculo3, setBaseCalculo3] = useState('')
@@ -18,68 +20,79 @@ export default function intro() {
     
     function calcular() {
       let resultado;
-      if(passagem1) {
-        if(check1 === false && check2 === false){
-        resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2)
-        } else if(check1 == true && check2 == false){
-        resultado =   (parseFloat(baseCalculo1) * 2) + parseFloat(baseCalculo2)
-        } else if(check1 == false && check2 == true){
-        resultado =   parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2)
+
+      if (passagem1) {
+        if (check1 === false) {
+          resultado = parseFloat(baseCalculo1)
+        } else if (check1 === true) {
+          resultado = (parseFloat(baseCalculo1)*2)
         }
       }
 
-      if(passagem2) {
-        if(check1 === false && check2 === false && check3 === false){
+      if (passagem2) {
+        if (check1 === false && check2 === false){
+        resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2)
+        } else if (check1 == true && check2 == false){
+        resultado =   (parseFloat(baseCalculo1)*2) + parseFloat(baseCalculo2)
+        } else if (check1 == false && check2 == true){
+        resultado =   parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2)
+        } else if (check1 == true && check2 == true){
+          resultado =  (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2)
+        }
+      }
+
+      if (passagem3) {
+        if (check1 === false && check2 === false && check3 === false){
           resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2) + parseFloat(baseCalculo3)
-        } else if(check1 === true && check2 === false && check3 === false){
+        } else if (check1 === true && check2 === false && check3 === false){
           resultado = (parseFloat(baseCalculo1) * 2) + parseFloat(baseCalculo2) + parseFloat(baseCalculo3)
-        }else if(check1 === false && check2 === true && check3 === false){
+        }else if (check1 === false && check2 === true && check3 === false){
           resultado = parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3)
-        }else if(check1 === false && check2 === false && check3 === true){
+        }else if (check1 === false && check2 === false && check3 === true){
           resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2) + (parseFloat(baseCalculo3)*2)
-        } else if(check1 === true && check2 === false && check3 === true){
+        } else if (check1 === true && check2 === false && check3 === true){
           resultado = (parseFloat(baseCalculo1)*2) + parseFloat(baseCalculo2) + (parseFloat(baseCalculo3)*2)
-        } else if(check1 === true && check2 === true && check3 === false){
+        } else if (check1 === true && check2 === true && check3 === false){
           resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3)
-        } else if(check1 === false && check2 === true && check3 === true){
+        } else if (check1 === false && check2 === true && check3 === true){
           resultado = parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2) + (parseFloat(baseCalculo3)*2)
-        } else if(check1 === true && check2 === true && check3 === true){
+        } else if (check1 === true && check2 === true && check3 === true){
           resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + (parseFloat(baseCalculo3)*2)
         }
       }
 
-      if(passagem3) {
-        if(check1 === false && check2 === false && check3 === false && check4 === false){
+      if (passagem4) {
+        if (check1 === false && check2 === false && check3 === false && check4 === false){
           resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2) + parseFloat(baseCalculo3) + parseFloat(baseCalculo4)
-        } else if(check1 === true && check2 === false && check3 === false && check4 === false){
+        } else if (check1 === true && check2 === false && check3 === false && check4 === false){
           resultado = (parseFloat(baseCalculo1) * 2) + parseFloat(baseCalculo2) + parseFloat(baseCalculo3) + parseFloat(baseCalculo4)
-        } else if(check1 === false && check2 === true && check3 === false && check4 === false){
+        } else if (check1 === false && check2 === true && check3 === false && check4 === false){
           resultado = parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3) + parseFloat(baseCalculo4)
-        } else if(check1 === false && check2 === false && check3 === true && check4 === false){
+        } else if (check1 === false && check2 === false && check3 === true && check4 === false){
           resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2) + (parseFloat(baseCalculo3)*2) + parseFloat(baseCalculo4)
-        } else if(check1 === false && check2 === false && check3 === false && check4 === true){
+        } else if (check1 === false && check2 === false && check3 === false && check4 === true){
           resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2) + parseFloat(baseCalculo3) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === true && check2 === false && check3 === false && check4 === true){
+        } else if (check1 === true && check2 === false && check3 === false && check4 === true){
           resultado = (parseFloat(baseCalculo1)*2) + parseFloat(baseCalculo2) + parseFloat(baseCalculo3) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === true && check2 === false && check3 === true && check4 === false){
+        } else if (check1 === true && check2 === false && check3 === true && check4 === false){
           resultado = (parseFloat(baseCalculo1)*2) + parseFloat(baseCalculo2) + (parseFloat(baseCalculo3)*2) + parseFloat(baseCalculo4)
-        } else if(check1 === true && check2 === true && check3 === false && check4 === false){
+        } else if (check1 === true && check2 === true && check3 === false && check4 === false){
           resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3) + parseFloat(baseCalculo4)
-        } else if(check1 === false && check2 === true && check3 === false && check4 === true){
+        } else if (check1 === false && check2 === true && check3 === false && check4 === true){
           resultado = parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === false && check2 === true && check3 === true && check4 === false){
+        } else if (check1 === false && check2 === true && check3 === true && check4 === false){
           resultado = parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2) + (parseFloat(baseCalculo3)*2) + parseFloat(baseCalculo4)
-        } else if(check1 === false && check2 === false && check3 === true && check4 === true){
+        } else if (check1 === false && check2 === false && check3 === true && check4 === true){
           resultado = parseFloat(baseCalculo1) + parseFloat(baseCalculo2) + (parseFloat(baseCalculo3)*2) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === true && check2 === true && check3 === true && check4 === false){
+        } else if (check1 === true && check2 === true && check3 === true && check4 === false){
           resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + (parseFloat(baseCalculo3)*2) + parseFloat(baseCalculo4)
-        } else if(check1 === true && check2 === true && check3 === false && check4 === true){
+        } else if (check1 === true && check2 === true && check3 === false && check4 === true){
           resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === true && check2 === false && check3 === true && check4 === true){
+        } else if (check1 === true && check2 === false && check3 === true && check4 === true){
           resultado = (parseFloat(baseCalculo1)*2) + parseFloat(baseCalculo2)+ (parseFloat(baseCalculo3)*2) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === false && check2 === true && check3 === true && check4 === true){
-          resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + parseFloat(baseCalculo3) + (parseFloat(baseCalculo4)*2)
-        } else if(check1 === true && check2 === true && check3 === true && check4 === true){
+        } else if (check1 === false && check2 === true && check3 === true && check4 === true){
+          resultado = parseFloat(baseCalculo1) + (parseFloat(baseCalculo2)*2) + (parseFloat(baseCalculo3)*2) + (parseFloat(baseCalculo4)*2)
+        } else if (check1 === true && check2 === true && check3 === true && check4 === true){
           resultado = (parseFloat(baseCalculo1)*2) + (parseFloat(baseCalculo2)*2) + (parseFloat(baseCalculo3)*2) + (parseFloat(baseCalculo4)*2)
         }
       }
@@ -87,10 +100,49 @@ export default function intro() {
       return resultado?.toFixed(2)
     }
 
+    function closeBox (num: number) {
+      if(num == 1) {
+        setPassagem1(!passagem1)
+
+        setPassagem2(false)
+        setPassagem3(false)
+        setPassagem4(false)
+      } else if(num == 2) {
+        setPassagem2(!passagem2)
+
+        setPassagem1(false)
+        setPassagem3(false)
+        setPassagem4(false)
+      } else if(num == 3) {
+        setPassagem3(!passagem3)
+
+        setPassagem1(false)
+        setPassagem2(false)
+        setPassagem4(false)
+      } else if(num == 4) {
+        setPassagem4(!passagem4)
+
+        setPassagem1(false)
+        setPassagem2(false)
+        setPassagem3(false)
+      }
+    }
+
+    useEffect(() => {
+      setBaseCalculo1('')
+      setBaseCalculo2('')
+      setBaseCalculo3('')
+      setBaseCalculo4('')
+      setCheck1(false)
+      setCheck2(false)
+      setCheck3(false)
+      setCheck4(false)
+    }, [passagem1,passagem2,passagem3,passagem4])
+
     return (
       <Container style={{}}>
           <ViewCol>
-            <Title>Insira o valor da passagem</Title>
+            <Title>Calculadora de Transporte</Title>
             <Line/>
 
             <Text> Quantas Passagens irá calcular? </Text>
@@ -98,31 +150,65 @@ export default function intro() {
             <CheckboxView>
               <ViewRowCheck>
                 <Checkbox
+                  color="#08f"
+                  uncheckedColor="#fff"
                   status = {passagem1? 'checked':'unchecked'}
-                  onPress={() => setPassagem1(!passagem1)}
+                  onPress={() => closeBox(1)}
+                />
+                <Text>1 Passagem</Text>
+              </ViewRowCheck>
+
+              <ViewRowCheck>
+                <Checkbox
+                  color="#08f"
+                  uncheckedColor="#fff"
+                  status = {passagem2? 'checked':'unchecked'}
+                  onPress={() => closeBox(2)}
                 />
                 <Text>2 Passagens</Text>
               </ViewRowCheck>
 
               <ViewRowCheck>
                 <Checkbox
-                  status = {passagem2? 'checked':'unchecked'}
-                  onPress={() => setPassagem2(!passagem2)}
+                  color="#08f"
+                  uncheckedColor="#fff"
+                  status = {passagem3? 'checked':'unchecked'}
+                  onPress={() => closeBox(3)}
                 />
                 <Text>3 Passagens</Text>
               </ViewRowCheck>
 
               <ViewRowCheck>
                 <Checkbox
-                  status = {passagem3? 'checked':'unchecked'}
-                  onPress={() => setPassagem3(!passagem3)}
+                  color="#08f"
+                  uncheckedColor="#fff"
+                  status = {passagem4? 'checked':'unchecked'}
+                  onPress={() => closeBox(4)}
                 />
                 <Text>4 Passagens</Text>
               </ViewRowCheck>
             </CheckboxView>
 
             {
-            passagem1 && 
+               passagem1 && 
+               <>
+                 <ViewRow>
+                   <InpText
+                     keyboardType='phone-pad'
+                     maxLength = {5}
+                     onChangeText={setBaseCalculo1}
+                     value = {baseCalculo1}
+                   />
+                   <Checkbox
+                     status = {check1? 'checked':'unchecked'}
+                     onPress={() => setCheck1(!check1)}
+                   />
+                   <Text>Ida e Volta</Text>
+                 </ViewRow>
+               </>
+            }
+            {
+            passagem2 && 
             <>
               <ViewRow>
                 <InpText
@@ -140,6 +226,8 @@ export default function intro() {
               
               <ViewRow>
                 <InpText
+                  keyboardType='phone-pad'
+                  maxLength = {5}
                   onChangeText={setBaseCalculo2}
                   value = {baseCalculo2}
                 />
@@ -153,7 +241,7 @@ export default function intro() {
             }
 
             {
-            passagem2 && 
+            passagem3 && 
             <>
               <ViewRow>
                 <InpText
@@ -187,8 +275,8 @@ export default function intro() {
               <ViewRow>
                 <InpText
                   keyboardType = 'phone-pad'
-                  onChangeText={setBaseCalculo3}
                   maxLength = {5}
+                  onChangeText={setBaseCalculo3}
                   value = {baseCalculo3}
                 />
                 <Checkbox
@@ -201,7 +289,7 @@ export default function intro() {
             }
 
             {
-            passagem3 &&
+            passagem4 &&
             <>
               <ViewRow>
                 <InpText
@@ -234,8 +322,8 @@ export default function intro() {
               <ViewRow>
                 <InpText
                   keyboardType = 'phone-pad'
-                  onChangeText={setBaseCalculo3}
                   maxLength = {5}
+                  onChangeText={setBaseCalculo3}
                   value = {baseCalculo3}
                 />
                 <Checkbox
@@ -248,8 +336,8 @@ export default function intro() {
               <ViewRow>
                 <InpText
                   keyboardType = 'phone-pad'
-                  onChangeText={setBaseCalculo4}
                   maxLength = {5}
+                  onChangeText={setBaseCalculo4}
                   value = {baseCalculo4}
                 />
                 <Checkbox
@@ -261,14 +349,17 @@ export default function intro() {
             </>
             }
 
-            <Result>{calcular()}</Result>
-
-            <Button  
-              disabled={passagem1 == false && passagem2 == false && passagem3 == false}
-              onPress={() => calcular()}
-              title="Calcular"
-            />
+            <Result style={check1 || check2 || check3 || check4 ? [style.textWhite]:[style.textGray] }>{calcular() !== "NaN" && calcular()}</Result>
           </ViewCol>
       </Container>
     );
   }
+
+  const style = StyleSheet.create({
+    textWhite: {
+      color: "#fff"
+    },
+    textGray: {
+      color: "#aaa"
+    }
+  })

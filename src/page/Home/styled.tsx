@@ -2,10 +2,10 @@ import React from 'react'
 
 import styled from 'styled-components/native';
 
-
 export const Container = styled.View `
     flex: 1;
     background: #333;
+    margin-top: 5%;
 `;
 export const Scroll = styled.ScrollView`
     height: 95%;
@@ -13,7 +13,6 @@ export const Scroll = styled.ScrollView`
 `;
 
 export const ViewCol = styled.View `
-    background: #fff;
     margin-top: 6%;
     align-items: center;
     justify-content: center;
@@ -21,7 +20,6 @@ export const ViewCol = styled.View `
 
 export const ViewRow = styled.View `
     flex-direction: row;
-    background: #fff;
     margin-bottom: 20px;
     align-items: center;
     justify-content: center;
@@ -29,7 +27,6 @@ export const ViewRow = styled.View `
 
 export const ViewRowCheck = styled.View `
     flex-direction: row;
-    background: #fff;
     align-items: center;
     justify-content: center;
 `;
@@ -37,9 +34,13 @@ export const ViewRowCheck = styled.View `
 export const Text = styled.Text`
     color: #08f;
 `;
+
 export const Title = styled.Text`
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 700;
     color: #08f;
+    font-family: san-serif;
+    text-align: center;
 `;
 
 export const CheckboxView = styled.View`
@@ -52,9 +53,7 @@ export const Line = styled.View`
     width:100%;
     height: 1px;
     border-color: #999;
-
 `;
-
 
 export const Button = styled.Button`
     color: #08f;
@@ -64,15 +63,15 @@ export const InpText = styled.TextInput`
     padding: 3px 10px;
     font-size: 18px;
     height: 40px;
-    border: #f25;
+    border: #fff;
     border-radius: 5px;
     width: 50%;
+    color: #fff;
 `;
 
 export const Result = styled.Text`
     font-size: 25px;
-    color: #777;
+    color: #999;
     font-weight: 700;
-    font-family: sans-serif;
     margin-bottom: 15px;
 `;
