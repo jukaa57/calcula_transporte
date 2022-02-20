@@ -8,8 +8,8 @@ export const Container = styled.View `
     margin-top: 5%;
 `;
 export const Scroll = styled.ScrollView`
-    height: 95%;
-    margin-top: 5%;
+    height: 99%;
+    width: 100%
 `;
 
 export const ViewCol = styled.View `
@@ -20,7 +20,7 @@ export const ViewCol = styled.View `
 
 export const ViewRow = styled.View `
     flex-direction: row;
-    margin-bottom: 20px;
+    margin: 20px 0;
     align-items: center;
     justify-content: center;
 `;
@@ -33,18 +33,20 @@ export const ViewRowCheck = styled.View `
 
 export const Text = styled.Text`
     color: #08f;
+    text-align: center;
+    font-size: 20px;
 `;
 
 export const Title = styled.Text`
     font-size: 28px;
     font-weight: 700;
     color: #08f;
-    font-family: san-serif;
     text-align: center;
 `;
 
 export const CheckboxView = styled.View`
     margin-bottom: 25px;
+    margin-top: 25px;
 `;
 
 export const Line = styled.View`
@@ -63,10 +65,9 @@ export const InpText = styled.TextInput`
     padding: 3px 10px;
     font-size: 18px;
     height: 40px;
-    border: #fff;
     border-radius: 5px;
     width: 50%;
-    color: #fff;
+    color: #666;
 `;
 
 export const Result = styled.Text`
@@ -74,4 +75,5 @@ export const Result = styled.Text`
     color: #999;
     font-weight: 700;
     margin-bottom: 15px;
+    text-align: center;
 `;
